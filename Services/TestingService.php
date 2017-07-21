@@ -3,7 +3,7 @@
 namespace Dope\ClassifierBundle\Services;
 
 /**
- * @category  evernote
+ * @category  classifier
  * @copyright Copyright (c) 2017 CHECK24 Vergleichsportal Flüge GmbH
  */
 class TestingService

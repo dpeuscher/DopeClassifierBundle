@@ -5,7 +5,7 @@ namespace Dope\ClassifierBundle\Services;
 use Exception;
 
 /**
- * @category  evernote
+ * @category  classifier
  * @copyright Copyright (c) 2017 CHECK24 Vergleichsportal Flüge GmbH
  */
 abstract class AbstractDeepDetectService
