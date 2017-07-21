@@ -1,0 +1,3 @@
+dope_classifier_homepage:
+    path:     /
+    defaults: { _controller: DopeClassifierBundle:Default:index }

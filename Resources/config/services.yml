@@ -1,0 +1,44 @@
+services:
+    _defaults:
+        # automatically injects dependencies in your services
+        autowire: true
+        # automatically registers your services as commands, event subscribers, etc.
+        autoconfigure: true
+        # this means you cannot fetch services directly from the container via $container->get()
+        # if you need to do this, you can override this setting on individual services
+        public: false
+
+    Dope\ClassifierBundle\Services\:
+        resource: '../../Services/*'
+        exclude: '../../Services/{Exceptions,Responses,Abstract*}'
+        public: true
+
+    Dope\ClassifierBundle\Services\BuildDetectionDatabaseService:
+        arguments:
+            $deepDetectEndpoint: '%deepdetect_endpoint%'
+            $repositoryLocation: '%deepdetect_repositoryLocation%'
+            $localLocation: '%deepdetect_localLocation%'
+        public: true
+
+    Dope\ClassifierBundle\Services\PredictionService:
+        arguments:
+            - '%deepdetect_endpoint%'
+        public: true
+
+    Dope\ClassifierBundle\Services\ClassFileWriter:
+        arguments:
+            - '%note_classifier_folder%'
+        public: true
+
+    Dope\ClassifierBundle\Repository\TrainParameterResultRepository:
+        class: Dope\ClassifierBundle\Repository\TrainParameterResultRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - 'Dope\ClassifierBundle\Entity\TrainParameterResult'
+
+    Dope\ClassifierBundle\Repository\TrainParameterClassResultRepository:
+        class: Dope\ClassifierBundle\Repository\TrainParameterClassResultRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - 'Dope\ClassifierBundle\Entity\TrainParameterClassResult'
+
