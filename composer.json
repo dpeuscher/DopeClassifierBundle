@@ -1,0 +1,25 @@
+{
+    "name": "dope/classifierbundle",
+    "description": "Train a Deepdetect instance, running in a docker-container, by classified text-files and try different training-configurations",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "Dominik Peuscher",
+            "email": "dpeuscher@gmail.com"
+        }
+    ],
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "doctrine/doctrine-bundle": "^1.6",
+        "mashape/unirest-php": "^3.0",
+        "symfony/symfony": "3.3.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Dope\\ClassifierBundle": ""
+        }
+    },
+    "target-dir": "Dope/ClassifierBundle"
+}
